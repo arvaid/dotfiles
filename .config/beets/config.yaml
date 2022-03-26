@@ -1,0 +1,29 @@
+directory: ~/Music
+library: ~/.config/beets/library.db
+paths:
+  default: $albumartist/$year $album%aunique{}/$track $title
+  singleton: Singletons/$artist - $title
+  albumtype:soundtrack: Soundtracks/$album%aunique{}/$track $title
+ui:
+  color: yes
+import:
+  hardlink: yes
+  write: yes
+  resume: no
+art_filename: cover
+musicbrainz:
+  genre: yes
+plugins: fetchart embedart info play random replaygain lastgenre rewrite fish
+fetchart:
+  midwidth: 400
+  enforce_ratio: 10px
+  sources: filesystem itunes amazon albumart coverart
+embedart:
+  auto: no
+replaygain:
+  backend: gstreamer
+  auto: no
+lastgenre:
+  canonical: yes
+rewrite:
+  artist Reol: REOL

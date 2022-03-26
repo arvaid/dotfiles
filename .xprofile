@@ -1,0 +1,31 @@
+export EDITOR=/usr/bin/nvim
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+# system
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dbus-launch &
+eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+/usr/lib/geoclue-2.0/demos/agent &
+
+# convenience
+udisksctl mount -b /dev/sda8 &
+playerctld &
+thunar --daemon &
+setxkbmap us -option compose:ralt &
+greenclip daemon &
+
+# desktop
+picom -b
+#hsetroot -solid '#1A1E21' &
+hsetroot -solid '#1B1D24' &
+g810-led -pp < ~/.keyboard_profile &
+~/.screenlayout/vertical.sh &
+
+# tray
+nm-applet &
+blueman-applet &
+pamac-tray &
+

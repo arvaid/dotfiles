@@ -1,0 +1,14 @@
+set font "monospace 11"
+
+map = zoom in
+map + zoom default
+
+map [fullscreen] = zoom in
+map [fullscreen] + zoom default
+
+map [presentation] = zoom in
+map [presentation] - zoom out
+map [presentation] + zoom default
+
+set index-active-fg "#ffffff"
+

@@ -1,0 +1,54 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+# Global properties
+separator=true
+separator_block_width=15
+command=/usr/lib/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+
+[weather]
+command=curl -s "wttr.in/Eger?format=3" | awk '{print $2" "$3}'
+interval=300
+
+[ip]
+command=ip route get 1.2.3.4 | awk '{print $7}'
+label=<span color='#97A1AA'>IP </span>
+markup=pango
+interval=300
+
+[load_average]
+label=<span color='#97A1AA'>CPU </span>
+markup=pango
+separator=false
+interval=10
+
+[memory]
+label=<span color='#97A1AA'>MEM </span>
+markup=pango
+interval=30
+
+[disk]
+label=<span color='#97A1AA'>/ </span>
+DIR=/
+interval=30
+markup=pango
+separator=false
+
+[disk]
+label=<span color='#97A1AA'>/home </span>
+DIR=/home
+interval=30
+markup=pango
+
+[calendar]
+interval=1
+DATEFMT=+%b %-d %H:%M
+SHORTFMT=+%H:%M
+HEIGHT=180
+WIDTH=220
+markup=pango
+

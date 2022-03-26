@@ -1,0 +1,9 @@
+var green 00ff00
+var white ffffff
+
+a $green
+k logo $white
+g indicators $white
+k light 000000
+
+c
